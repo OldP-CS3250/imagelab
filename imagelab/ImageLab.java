@@ -287,6 +287,9 @@ public class ImageLab {
                 FileDialog fd;
                 fd = new FileDialog(frame, "Pick an image", FileDialog.LOAD);
                 fd.setVisible(true);
+                if(fd.getFile() == null){
+                    return;
+                }else{
                 String theFile = fd.getFile();
                 String theDir = fd.getDirectory();
                 //System.out.println("The file's name is " + theDir + theFile);
@@ -295,6 +298,7 @@ public class ImageLab {
                 improvider.showImage(theDir + theFile);
                 images.add(improvider);
                 impro = improvider; //current image provider is set
+                }
             } //actionPerformed
         };
     } // makeOpenListener
